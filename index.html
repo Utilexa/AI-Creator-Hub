@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creator AI Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="logo">CAH</div>
+          <div>
+            <h1>Creator AI Hub</h1>
+            <p>Create faster. Grow smarter.</p>
+          </div>
+        </div>
+
+        <nav class="tool-nav" id="toolNav"></nav>
+
+        <section class="plan-card">
+          <h2>Plan & Access</h2>
+          <div class="auth-row">
+            <input id="emailInput" type="email" placeholder="Email" />
+            <button class="btn btn-secondary" id="loginBtn">Login</button>
+          </div>
+          <p id="loginState">Not logged in</p>
+
+          <div class="plan-toggle" role="group" aria-label="subscription plan">
+            <button class="btn btn-chip active" data-plan="free">Free ($0)</button>
+            <button class="btn btn-chip" data-plan="prime">Prime ($49/mo)</button>
+            <button class="btn btn-chip" data-plan="yearly">Yearly ($499/yr)</button>
+          </div>
+
+          <p id="usageState"></p>
+          <button class="btn btn-primary full" id="upgradeBtn">Pay with Stripe (Demo)</button>
+        </section>
+
+        <section class="plan-card">
+          <h2>Currency Quick Convert</h2>
+          <div class="currency-grid">
+            <input id="amount" type="number" placeholder="Amount" value="1" />
+            <select id="fromCurrency">
+              <option>USD</option>
+              <option selected>INR</option>
+              <option>PKR</option>
+              <option>EUR</option>
+              <option>GBP</option>
+            </select>
+            <select id="toCurrency">
+              <option selected>USD</option>
+              <option>INR</option>
+              <option>PKR</option>
+              <option>EUR</option>
+              <option>GBP</option>
+            </select>
+            <button class="btn btn-secondary" id="convertBtn">Convert</button>
+          </div>
+          <p id="convertResult">Pick currencies and convert.</p>
+        </section>
+      </aside>
+
+      <main class="main-content">
+        <section class="top-controls">
+          <label for="apiKey">OpenAI API Key</label>
+          <input
+            id="apiKey"
+            type="password"
+            placeholder="Paste your OpenAI key (stored only in your browser)"
+            autocomplete="off"
+          />
+        </section>
+
+        <section class="generator-card">
+          <header>
+            <h2 id="toolTitle">YouTube Script Generator</h2>
+            <p id="toolHint">Create viral, high-retention scripts in a structured format.</p>
+          </header>
+
+          <textarea
+            id="promptInput"
+            rows="8"
+            placeholder="Enter your topic, skills, message, or profile details..."
+          ></textarea>
+
+          <div class="action-row">
+            <button class="btn btn-primary" id="generateBtn">Generate</button>
+            <button class="btn btn-secondary" id="regenerateBtn">Regenerate 🔁</button>
+            <button class="btn btn-secondary" id="copyBtn">Copy 📋</button>
+          </div>
+
+          <div id="status" class="status hidden" aria-live="polite">Generating… ⏳</div>
+
+          <article id="output" class="output-card">
+            <h3>Output</h3>
+            <div id="outputBody">Your generated content will appear here.</div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
